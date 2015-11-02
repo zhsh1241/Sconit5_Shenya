@@ -23,19 +23,18 @@ namespace com.Sconit.Service.SI.MMMES0001 {
     
     
     /// <remarks/>
-    // CODEGEN: The optional WSDL extension element 'Policy' from namespace 'http://schemas.xmlsoap.org/ws/2004/09/policy' was not handled.
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.0.30319.18408")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="ZWS_MMMES0001", Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
-    public partial class ZWS_MMMES0001 : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="ZWS_MMMES001", Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
+    public partial class ZWS_MMMES001 : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback ZfunMmmes0001OperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public ZWS_MMMES0001() {
+        public ZWS_MMMES001() {
             this.Url = global::com.Sconit.Service.SI.Properties.Settings.Default.com_Sconit_Service_SI_MMMES0001_ZWS_MMMES0001;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;

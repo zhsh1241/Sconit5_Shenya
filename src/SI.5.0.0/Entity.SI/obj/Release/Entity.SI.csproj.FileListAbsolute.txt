@@ -9,3 +9,14 @@ F:\GIT\Sconit\Sconit5\branch\Shenya\src\SI.5.0.0\Entity.SI\bin\Release\zh-CN\com
 F:\GIT\Sconit\Sconit5\branch\Shenya\src\SI.5.0.0\Entity.SI\obj\Release\Entity.SI.csprojResolveAssemblyReference.cache
 F:\GIT\Sconit\Sconit5\branch\Shenya\src\SI.5.0.0\Entity.SI\obj\Release\com.Sconit.Entity.SI.dll
 F:\GIT\Sconit\Sconit5\branch\Shenya\src\SI.5.0.0\Entity.SI\obj\Release\com.Sconit.Entity.SI.pdb
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\bin\Release\com.Sconit.Entity.SI.dll
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\bin\Release\com.Sconit.Entity.SI.pdb
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\bin\Release\com.Sconit.Entity.dll
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\bin\Release\com.Sconit.Globalization.dll
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\bin\Release\com.Sconit.Entity.pdb
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\bin\Release\com.Sconit.Globalization.pdb
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\bin\Release\en-US\com.Sconit.Globalization.resources.dll
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\bin\Release\zh-CN\com.Sconit.Globalization.resources.dll
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\obj\Release\Entity.SI.csprojResolveAssemblyReference.cache
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\obj\Release\com.Sconit.Entity.SI.dll
+F:\GIT\shenya_test\SI.5.0.0\Entity.SI\obj\Release\com.Sconit.Entity.SI.pdb

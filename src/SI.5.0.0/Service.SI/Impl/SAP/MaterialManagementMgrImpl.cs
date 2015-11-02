@@ -27,7 +27,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     var result = this.genericMgr.FindAll<SAPMMMES0001>("from SAPMMMES0001 where status=0");
 
                     //根据批次调用接口发送数据
-                    MMMES0001.ZWS_MMMES0001 sapSeviceProxy = new MMMES0001.ZWS_MMMES0001();
+                    MMMES0001.ZWS_MMMES001 sapSeviceProxy = new MMMES0001.ZWS_MMMES001();
                     sapSeviceProxy.Credentials = new NetworkCredential(this.SAPService_UserName, this.SAPService_Password);
                     sapSeviceProxy.Timeout = int.Parse(this.SAPService_TimeOut);
                     sapSeviceProxy.Url = GetServiceUrl(sapSeviceProxy.Url);

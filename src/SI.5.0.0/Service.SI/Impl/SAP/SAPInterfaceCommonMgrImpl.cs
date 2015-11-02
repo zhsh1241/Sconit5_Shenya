@@ -85,7 +85,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 {
                     //DateTime currDate = DateTime.Now;
                     var messages = new List<ErrorMessage>();
-                    if (dBName.ToUpper() == "SCONIT" || (dBName.ToUpper() == "SCONIT_TEST" && this.SAPService_IP == "10.166.1.92"))
+                    if (dBName.ToUpper() == "SCONIT" || (dBName.ToUpper() == "SCONIT_TEST" && this.SAPService_IP == "10.168.1.21"))
                     {
                         messages.AddRange(materialManagementMgr.ExportMMMES0001Data());
                         messages.AddRange(materialManagementMgr.ExportMMMES0002Data());
