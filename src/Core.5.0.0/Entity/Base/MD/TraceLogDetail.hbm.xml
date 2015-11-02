@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+ 	<class name="com.Sconit.Entity.MD.TraceLogDetail, com.Sconit.Entity" table="Sys_TraceLogDet" lazy="false">
+		<id name="Id" column="Id" type="Int32" unsaved-value="0" >
+      		<generator class="identity" />
+        </id>
+    <property name="TraceLogId" column="TraceLogId" type="Int32" length="50" />
+    <property name="Field" column="Field" type="String" length="50" />	
+        <property name="OldValue" column="OldValue" type="String" length="255" />	
+		<property name="NewValue" column="NewValue" type="String" length="255" />	
+  	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<com.Sconit.Entity.MD.TraceLogDetail>
+<fieldset>
+    <legend>明细</legend>
+    @(Html.Telerik().Grid(Model)
+       .Name("TraceLogDetailGrid")
+        .DataKeys(keys =>
+        {
+            keys.Add(p => p.Id);
+        })
+        .Columns(columns =>
+        {
+            columns.Bound(o => o.Field).Title("字段").Width(30);
+            columns.Bound(o => o.NewValue).Title("新值").Width(150);
+            columns.Bound(o => o.OldValue).Title("旧值").Width(100);
+        })
+        .Scrollable()
+        .Resizable(resizing => resizing.Columns(true))
+        //.Editable(ViewBag.Editable)
+        .Footer(false)
+     )
+</fieldset>

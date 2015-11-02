@@ -1,0 +1,49 @@
+﻿
+@model IEnumerable<com.Sconit.Entity.MD.TraceLog>
+<fieldset>
+    @(Html.Telerik().Grid(Model)
+        .Name("TraceLogGrid")
+        .DataKeys(keys =>
+        {
+            keys.Add(p => p.Id);
+        })
+        .Columns(columns =>{
+            columns.Bound(o => o.Id).ClientTemplate(Html.ActionLink("<#= Id #>", "Edit", "TraceLog", new { ID = "<#= Id #>" }, null).ToString()); 
+            columns.Bound(o => o.EntityTableDescription).Title("数据对象");
+            //columns.Bound(o => o.Key1).Title("主键");
+            columns.Bound(o => o.Key2).Title("关键值1");
+            columns.Bound(o => o.Key3).Title("关键值2");
+            columns.Bound(o => o.Operator).Title("操作");
+            columns.Bound(o => o.UserName).Title("操作用户");
+            columns.Bound(o => o.OperateDate).Title("操作日期");
+            
+            }
+         )
+      
+            .Scrollable(c => c.Enabled(false))
+            .EnableCustomBinding(true)
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("_AjaxList", "TraceLog"))
+            .ClientEvents(events => events.OnDataBinding("TraceLogGrid_OnDataBinding"))
+            .Pageable(settings =>
+            {
+                settings.Total(ViewBag.Total != null ? ViewBag.Total : 0);
+                settings.PageSize(ViewBag.PageSize != null ? ViewBag.PageSize : 10);
+                if (ViewBag.Page != null)
+                {
+                    settings.PageTo(ViewBag.Page);
+                }
+            })
+            .Sortable()
+            .Resizable(resizing => resizing.Columns(true))
+            )
+    <script type="text/javascript">
+        function TraceLogGrid_OnDataBinding(e) {
+            e.data = {
+                Table: $('#Table').val(),
+                OperatorType: $('#OperatorType').val(),
+                DateFrom: $('#DateFrom').val(),
+                DateTo: $('#DateTo').val()
+            };
+        } 
+    </script>
+</fieldset>

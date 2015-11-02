@@ -1,0 +1,5 @@
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\LeanEngine.5.0.0\LeanEngine\bin\Release\com.Sconit.LeanEngine.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\LeanEngine.5.0.0\LeanEngine\bin\Release\com.Sconit.LeanEngine.pdb
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\LeanEngine.5.0.0\LeanEngine\bin\Release\AutoMapper.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\LeanEngine.5.0.0\LeanEngine\obj\Release\com.Sconit.LeanEngine.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\LeanEngine.5.0.0\LeanEngine\obj\Release\com.Sconit.LeanEngine.pdb

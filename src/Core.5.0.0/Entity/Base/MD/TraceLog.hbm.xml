@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+ 	<class name="com.Sconit.Entity.MD.TraceLog, com.Sconit.Entity" table="Sys_TraceLog" lazy="false">
+		<id name="Id" column="Id" type="Int32" unsaved-value="0" >
+      		<generator class="identity" />
+        </id>
+		<property name="Entity" column="Entity" type="String" length="50" />	
+        <property name="EntityTable" column="EntityTable" type="String" length="50" />
+		<property name="Operator" column="Operator" type="String" length="50" />	
+		<property name="Key1" column="Key1" type="String" length="50" />	
+		<property name="Key2" column="Key2" type="String" length="50" />	
+		<property name="Key3" column="Key3" type="String" length="50" />	
+		<property name="OperateDate" column="OperateDate" type="DateTime"  />	
+		<property name="UserCode" column="UserCode" type="String" length="50" />	
+		<property name="UserName" column="UserName" type="String" length="100" />
+        <property name="IsUpdated" column="IsUpdated" type="Boolean" />
+  	</class>
+
+    <sql-query name="USP_Help_FormatLog">
+        exec USP_Help_FormatLog ?
+    </sql-query>
+</hibernate-mapping>

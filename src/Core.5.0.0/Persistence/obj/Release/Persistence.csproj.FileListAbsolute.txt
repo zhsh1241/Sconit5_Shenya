@@ -1,0 +1,12 @@
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\com.Sconit.Persistence.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\com.Sconit.Persistence.pdb
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\Castle.Core.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\Castle.Facilities.NHibernateIntegration.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\Castle.Windsor.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\NHibernate.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\Castle.Services.Transaction.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\log4net.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\bin\Release\Iesi.Collections.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\obj\Release\Persistence.csprojResolveAssemblyReference.cache
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\obj\Release\com.Sconit.Persistence.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Persistence\obj\Release\com.Sconit.Persistence.pdb

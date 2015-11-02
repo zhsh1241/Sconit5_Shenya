@@ -1,0 +1,9 @@
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\bin\Release\com.Sconit.Entity.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\bin\Release\com.Sconit.Entity.pdb
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\bin\Release\com.Sconit.Globalization.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\bin\Release\com.Sconit.Globalization.pdb
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\bin\Release\en-US\com.Sconit.Globalization.resources.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\bin\Release\zh-CN\com.Sconit.Globalization.resources.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\obj\Release\Entity.csprojResolveAssemblyReference.cache
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\obj\Release\com.Sconit.Entity.dll
+F:\GIT\Sconit\Sconit5\branch\Shenya\src\Core.5.0.0\Entity\obj\Release\com.Sconit.Entity.pdb
