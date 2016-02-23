@@ -102,7 +102,7 @@ namespace com.Sconit.Utility.Report
         public void WriteToClient(String fileName, HSSFWorkbook workbook)
         {
             //excel. pdf
-            XlsHelper.WriteToClient(fileName, workbook);
+            XlsHelper.WriteToClient2(fileName, workbook);
         }
         public void WriteXlsToClient(String fileName, HSSFWorkbook workbook)
         {

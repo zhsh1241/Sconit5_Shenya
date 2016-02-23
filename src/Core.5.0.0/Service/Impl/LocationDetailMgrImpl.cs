@@ -3564,6 +3564,8 @@ namespace com.Sconit.Service.Impl
                 }
                 else
                 {
+                    //检查非寄售库存是否满足单条码的装箱
+                    
                     inventoryOut.Location = inventoryPack.Location;
                     inventoryOut.Item = inventoryPack.CurrentHu.Item;
                     inventoryOut.HuId = null;
@@ -3582,6 +3584,14 @@ namespace com.Sconit.Service.Impl
                     inventoryOut.IsVoid = false;
                     inventoryOut.EffectiveDate = effectiveDate;
                     //inventoryIO.ManufactureParty = ;
+
+                    var locationLotDetailList = genericMgr.FindAllWithNamedQuery<LocationLotDetail>("USP_Busi_GetPlusInventory", new Object[] { inventoryOut.Location, inventoryOut.Item, inventoryOut.QualityType, inventoryOut.OccupyType, false },
+                                    new IType[] { NHibernate.NHibernateUtil.String, NHibernate.NHibernateUtil.String, NHibernate.NHibernateUtil.Int16, NHibernate.NHibernateUtil.Int16, NHibernate.NHibernateUtil.Boolean });
+                    if (locationLotDetailList.Count > 0 && locationLotDetailList.Sum(l => l.Qty)>0 && locationLotDetailList.Sum(l => l.Qty) + inventoryOut.Qty < 0)
+                    {
+                        businessException.AddMessage("零件{0}非寄售的库存数量{1}不足本次装箱条码{2}的数量", inventoryOut.Item, locationLotDetailList.Sum(l => l.Qty).ToString(), inventoryPack.HuId);
+                        throw businessException;
+                    }
 
                     issInventoryTransactionList = RecordInventory(inventoryOut);
                 }

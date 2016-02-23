@@ -84,7 +84,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                         }
                         catch (Exception ex)
                         {
-                            string logMessage = "传输库内移动业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
+                            string logMessage = "传输生产单下线业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
                             errorMessageList.Add(new ErrorMessage
                             {
                                 Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -96,7 +96,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 }
                 catch (Exception ex)
                 {
-                    string logMessage = "导出输库内移动业务数据给SAP出错。";
+                    string logMessage = "导出生产单下线数据给SAP出错。";
                     errorMessageList.Add(new ErrorMessage
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -162,7 +162,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                         }
                         catch (Exception ex)
                         {
-                            string logMessage = "传输库内移动业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
+                            string logMessage = "传输生产下线冲销业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
                             errorMessageList.Add(new ErrorMessage
                             {
                                 Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -174,7 +174,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 }
                 catch (Exception ex)
                 {
-                    string logMessage = "导出输库内移动业务数据给SAP出错。";
+                    string logMessage = "导出生产下线冲销业务数据给SAP出错。";
                     errorMessageList.Add(new ErrorMessage
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -252,7 +252,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                         }
                         catch (Exception ex)
                         {
-                            string logMessage = "传输库内移动业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
+                            string logMessage = "传输废品报工业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
                             errorMessageList.Add(new ErrorMessage
                             {
                                 Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -264,7 +264,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 }
                 catch (Exception ex)
                 {
-                    string logMessage = "导出输库内移动业务数据给SAP出错。";
+                    string logMessage = "导出废品报工业务数据给SAP出错。";
                     errorMessageList.Add(new ErrorMessage
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -337,7 +337,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                         }
                         catch (Exception ex)
                         {
-                            string logMessage = "传输库内移动业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
+                            string logMessage = "传输过滤业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
                             errorMessageList.Add(new ErrorMessage
                             {
                                 Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -349,7 +349,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 }
                 catch (Exception ex)
                 {
-                    string logMessage = "导出输库内移动业务数据给SAP出错。";
+                    string logMessage = "导出过滤业务数据给SAP出错。";
                     errorMessageList.Add(new ErrorMessage
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -427,7 +427,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                         }
                         catch (Exception ex)
                         {
-                            string logMessage = "传输库内移动业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
+                            string logMessage = "传输生产调整业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
                             errorMessageList.Add(new ErrorMessage
                             {
                                 Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -439,7 +439,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 }
                 catch (Exception ex)
                 {
-                    string logMessage = "导出输库内移动业务数据给SAP出错。";
+                    string logMessage = "导出生产调整业务数据给SAP出错。";
                     errorMessageList.Add(new ErrorMessage
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -520,7 +520,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                         }
                         catch (Exception ex)
                         {
-                            string logMessage = "传输库内移动业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
+                            string logMessage = "传输试制业务数据给SAP时失败,批次号为：" + uniqueCode + "，失败信息：" + ex.Message;
                             errorMessageList.Add(new ErrorMessage
                             {
                                 Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -532,7 +532,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 }
                 catch (Exception ex)
                 {
-                    string logMessage = "导出输库内移动业务数据给SAP出错。";
+                    string logMessage = "导出试制业务数据给SAP出错。";
                     errorMessageList.Add(new ErrorMessage
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,

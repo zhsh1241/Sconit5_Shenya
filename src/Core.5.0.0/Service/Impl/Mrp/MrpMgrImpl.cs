@@ -2370,11 +2370,19 @@ namespace com.Sconit.Service.MRP.Impl
 
             #region  查询 MachineInstance
             logRunMrp.Info(string.Format("-{0} - 后加工排产数据准备 - 查询MachineInstance", newPlanVersion));
+            var shipPlanMaxDate = string.Empty;
+            if (shipPlanGroups.Count() > 0)
+            {
+                shipPlanMaxDate = shipPlanGroups.Max(p => p.List.Max(q => q.PlanDate)).ToString("yyyy-MM-dd");
+            }
+            else
+            {
+                shipPlanMaxDate = DateTime.Now.ToString("yyyy-MM-dd");
+            }
             var machineInstanceDic = (this.genericMgr.FindAll<MachineInstance>
                     ("from MachineInstance where DateType = ? and DateIndex between ? and ? ",
                     new object[] { CodeMaster.TimeUnit.Day,
-                    DateTime.Now.Date.ToString("yyyy-MM-dd"),
-                    shipPlanGroups.Max(p => p.List.Max(q => q.PlanDate)).ToString("yyyy-MM-dd") }))
+                    DateTime.Now.Date.ToString("yyyy-MM-dd"),shipPlanMaxDate}))
                     .GroupBy(p => p.DateIndex, (k, g) => new { k, g })
                     .ToDictionary(d => d.k, d => d.g.GroupBy(p => p.Code, (k, g) => new { k, g }).ToDictionary(d1 => d1.k, d1 => d1.g.First()));
             #endregion

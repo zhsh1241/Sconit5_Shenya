@@ -63,15 +63,15 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 data.LMatnr = itemCode;
                 data.LWerks = plant;
                 int getRows = 0;
-                bool isGetDataOK=false;
-                DateTime? transStartDate=DateTime.Now;
+                bool isGetDataOK = false;
+                DateTime? transStartDate = DateTime.Now;
                 DateTime? dataFromDate = reqBeginDate;
                 DateTime? dataToDate = currDate;
                 System.Threading.Thread.Sleep(10000);
                 try
                 {
                     MDMMES0001.ZfunMdmmes0001Response output = sapServiceProxy.ZfunMdmmes0001(data);
-                    isGetDataOK=true;
+                    isGetDataOK = true;
                     getRows = output.ItMdmmes0001.Count();
                     if (output.ItMdmmes0001.Length > 0)
                     {
@@ -111,7 +111,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                                     Message = logMessage
                                 });
                                 //以零件号做为批次号记日志
-                                this.SaveTransferLog(item.Matnr, logMessage, BusinessConstants.SAPMASTERDATA_ITEM, BusinessConstants.SAPMASTERDATA_ITEM, 2, 1, transStartDate,dataFromDate,dataToDate);
+                                this.SaveTransferLog(item.Matnr, logMessage, BusinessConstants.SAPMASTERDATA_ITEM, BusinessConstants.SAPMASTERDATA_ITEM, 2, 1, transStartDate, dataFromDate, dataToDate);
                             }
 
                         }
@@ -158,7 +158,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.SAPItemErrorTemplate,
                         Exception = ex,
-                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null?ex.InnerException.Message:"" )
+                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null ? ex.InnerException.Message : "")
                     });
                     this.SaveTransferLog(batchNo, logMessage, BusinessConstants.SAPMASTERDATA_ITEM, BusinessConstants.SAPMASTERDATA_ITEM, 2, getRows, transStartDate, dataFromDate, dataToDate);
                 }
@@ -309,7 +309,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.SAPBomErrorTemplate,
                         Exception = ex,
-                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null?ex.InnerException.Message:"" )
+                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null ? ex.InnerException.Message : "")
                     });
                     this.SaveTransferLog(batchNo, logMessage, BusinessConstants.SAPMASTERDATA_BOM, BusinessConstants.SAPMASTERDATA_BOM, 2, output.ItMdmmes0002.Count(), transStartDate, dataFromDate, dataToDate);
                 }
@@ -453,7 +453,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.SAPUomConvErrorTemplate,
                         Exception = ex,
-                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null?ex.InnerException.Message:"" )
+                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null ? ex.InnerException.Message : "")
                     });
                     this.SaveTransferLog(batchNo, logMessage, BusinessConstants.SAPMASTERDATA_UOMCONV, BusinessConstants.SAPMASTERDATA_UOMCONV, 2, output.ItMdmmes0003.Count(), transStartDate, dataFromDate, dataToDate);
                 }
@@ -606,7 +606,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.SAPPriceListErrorTemplate,
                         Exception = ex,
-                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null?ex.InnerException.Message:"" )
+                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null ? ex.InnerException.Message : "")
                     });
                     this.SaveTransferLog(batchNo, logMessage, BusinessConstants.SAPMASTERDATA_PRICELIST, BusinessConstants.SAPMASTERDATA_PRICELIST, 2, output.ItMdmmes0004.Count(), transStartDate, dataFromDate, dataToDate);
                 }
@@ -759,7 +759,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.SAPSupplierErrorTemplate,
                         Exception = ex,
-                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null?ex.InnerException.Message:"" )
+                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null ? ex.InnerException.Message : "")
                     });
                     this.SaveTransferLog(batchNo, logMessage, BusinessConstants.SAPMASTERDATA_SUPPLIER, BusinessConstants.SAPMASTERDATA_SUPPLIER, 2, output.ItMdmmes0005.Count(), transStartDate, dataFromDate, dataToDate);
                 }
@@ -911,7 +911,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.SAPCustomertErrorTemplate,
                         Exception = ex,
-                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null?ex.InnerException.Message:"" )
+                        Message = logMessage + (ex.Message ?? "") + (ex.InnerException == null ? ex.InnerException.Message : "")
                     });
                     this.SaveTransferLog(batchNo, logMessage, BusinessConstants.SAPMASTERDATA_CUSTOMER, BusinessConstants.SAPMASTERDATA_CUSTOMER, 2, output.ItMdmmes0006.Count(), transStartDate, dataFromDate, dataToDate);
                 }

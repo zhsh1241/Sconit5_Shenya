@@ -43,6 +43,8 @@ namespace com.Sconit.Web.Controllers
         #endregion
 
         #region Properties
+        public IEmailMgr emailMgr { get; set; }
+
         /// <summary>
         /// Gets or sets the this.SecurityMgr which main consider the user security 
         /// </summary>
