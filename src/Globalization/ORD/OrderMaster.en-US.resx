@@ -957,4 +957,7 @@
     <value>Schedule Line Shipped</value>
     <comment>发货成功</comment>
   </data>
+  <data name="OrderMaster_IsReceiveByOrder" xml:space="preserve">
+    <value>IsReceiveByOrder</value>
+  </data>
 </root>

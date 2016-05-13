@@ -554,4 +554,7 @@
   <data name="FlowMaster_SalesOrg" xml:space="preserve">
     <value>SalesOrg</value>
   </data>
+  <data name="FlowMaster_IsReceiveByOrder" xml:space="preserve">
+    <value>IsReceiveByOrder</value>
+  </data>
 </root>

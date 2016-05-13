@@ -2992,6 +2992,8 @@ namespace com.Sconit.Service.Impl
             AutoReceiveIp(ipMaster, effectiveDate);
             #endregion
 
+            this.genericMgr.FlushSession();
+
             return ipMaster;
         }
 
@@ -3387,6 +3389,14 @@ namespace com.Sconit.Service.Impl
 
             #region 查询订单头对象
             IList<OrderMaster> orderMasterList = LoadOrderMasters(nonZeroOrderDetailList.Select(p => p.OrderNo).Distinct(), true);
+            #endregion
+
+            #region 用IsCreatePickList作为是否按订单收货的选项
+            if (orderMasterList.Any(o => o.IsReceiveByOrder == false))
+            {
+                var order = orderMasterList.Where(o => o.IsReceiveByOrder == false).FirstOrDefault();
+                throw new BusinessException("订单{0}不可以按订单收货。", order.OrderNo); 
+            }
             #endregion
 
             #region 获取收货订单类型

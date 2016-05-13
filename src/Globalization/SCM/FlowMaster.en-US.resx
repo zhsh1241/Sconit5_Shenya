@@ -601,4 +601,7 @@
     <value>Flow updated successfully.</value>
     <comment>路线更新成功</comment>
   </data>
+  <data name="FlowMaster_IsReceiveByOrder" xml:space="preserve">
+    <value>IsReceiveByOrder</value>
+  </data>
 </root>

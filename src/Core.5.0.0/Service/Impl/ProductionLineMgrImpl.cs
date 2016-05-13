@@ -1556,14 +1556,14 @@ namespace com.Sconit.Service.Impl
                                             if (invQty >= currentBackfushQty)
                                             {
                                                 AddBackflushInput(orderMaster, orderDetail, backflushInputList, newOrderBomDetail, orderDetailInput, receiptDetail, currentBackfushQty);
-                                                invDic[orderBomDetail.Item] = invQty - currentBackfushQty;
+                                                invDic[itemDiscontinue.DiscontinueItem] = invQty - currentBackfushQty;
                                                 currentBackfushQty = 0;
                                                 break;
                                             }
                                             else
                                             {
                                                 AddBackflushInput(orderMaster, orderDetail, backflushInputList, newOrderBomDetail, orderDetailInput, receiptDetail, invQty);
-                                                invDic[orderBomDetail.Item] = 0;
+                                                invDic[itemDiscontinue.DiscontinueItem] = 0;
                                                 currentBackfushQty -= invQty;
                                             }
                                         }

@@ -264,6 +264,9 @@ namespace com.Sconit.Entity.ORD
         [Display(Name = "OrderMaster_IsShipByOrder", ResourceType = typeof(Resources.ORD.OrderMaster))]
         public Boolean IsShipByOrder { get; set; }
 
+        [Display(Name = "OrderMaster_IsReceiveByOrder", ResourceType = typeof(Resources.ORD.OrderMaster))]
+        public Boolean IsReceiveByOrder { get; set; }
+
         [Display(Name = "OrderMaster_IsOpenOrder", ResourceType = typeof(Resources.ORD.OrderMaster))]
         public Boolean IsOpenOrder { get; set; }
 

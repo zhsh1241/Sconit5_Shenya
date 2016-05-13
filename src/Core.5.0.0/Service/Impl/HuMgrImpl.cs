@@ -188,7 +188,7 @@ namespace com.Sconit.Service.Impl
                         hu.ManufactureDate = orderDetail.ManufactureDate;
                         hu.PrintCount = 0;
                         hu.ConcessionCount = 0;
-                        hu.ReferenceItemCode = orderDetail.ReferenceItemCode;
+                        hu.ReferenceItemCode = item.ReferenceCode;
                         //hu.IsOdd = hu.Qty < hu.UnitCount;
                         hu.IsChangeUnitCount = orderDetail.IsChangeUnitCount;
                         hu.UnitCountDescription = orderDetail.UnitCountDescription;

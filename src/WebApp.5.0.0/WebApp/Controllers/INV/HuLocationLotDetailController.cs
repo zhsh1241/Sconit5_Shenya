@@ -159,6 +159,35 @@ namespace com.Sconit.Web.Controllers.INV
                 var productTypes = genericMgr.FindAll<ProductType>().ToDictionary(d => d.Code, d => d);
                 //ld.HuId,ld.LotNo,ld.Location,ld.Bin,ld.Item,i.Desc1,i.RefCode,ld.UC,ld.OccupyType,ld.QualityType,ld.IsCS,
                 //ld.IsFreeze,ld.IsATP,ld.HuQty,ld.HuUom,ld.Qty,ld.BaseUom,hu.HuOption,ld.Direction,ht.Desc1
+                //foreach (var tak in searchResult)
+                //{
+                //    LocationLotDetail lld = new LocationLotDetail();
+                //    lld.HuId = (string)tak[1];
+                //    lld.LotNo = (string)tak[2];
+                //    lld.Location = (string)tak[3];
+                //    lld.Bin = (string)tak[4];
+                //    lld.Item = (string)tak[5];
+                //    lld.ItemDescription = (string)tak[6];
+                //    lld.ReferenceItemCode = (string)tak[7];
+                //    lld.UnitCount = (decimal)tak[8];
+                //    lld.HuStatusOccupyTypeDescription = systemMgr.GetCodeDetailDescription(Sconit.CodeMaster.CodeMaster.OccupyType, int.Parse((tak[9]).ToString()));
+                //    lld.QualityTypeDescription = systemMgr.GetCodeDetailDescription(Sconit.CodeMaster.CodeMaster.QualityType, int.Parse((tak[10]).ToString()));
+                //    lld.IsConsignment = (bool)tak[11];
+                //    lld.IsFreeze = (bool)tak[12];
+                //    lld.IsATP = (bool)tak[13];
+                //    lld.HuQty = (decimal)tak[14];
+                //    lld.HuUom = (string)tak[15];
+                //    lld.Qty = (decimal)tak[16];
+                //    lld.BaseUom = (string)tak[17];
+                //    lld.HuOptionDesc = systemMgr.GetCodeDetailDescription(Sconit.CodeMaster.CodeMaster.HuOption, int.Parse((tak[18]).ToString()));
+                //    lld.Direction = (string)tak[19];
+                //    lld.DirectionDescription = (string)tak[20];
+                //    lld.MaterialsGroup = (string)tak[21];
+                //    lld.MaterialsGroupDesc = (string)tak[22];
+                //    lld.ItemVersion = (string)tak[23] + (string.IsNullOrWhiteSpace((string)tak[23]) ? "" : "[" + productTypes.ValueOrDefault((string)tak[23]).Description + "]");
+                //    locationLotDetailList.Add(lld);
+                //}
+
                 locationLotDetailList = (from tak in searchResult
                                          select new LocationLotDetail
                                          {

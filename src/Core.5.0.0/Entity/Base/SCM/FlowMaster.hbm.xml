@@ -49,6 +49,7 @@
 		<property name="IsReceiveFifo" column="IsRecFifo" type="Boolean"  />
 		<!--<property name="IsPickFromBin" column="IsPickFromBin" type="Boolean"  />-->
 		<property name="IsShipByOrder" column="IsShipByOrder" type="Boolean"  />
+    <property name="IsReceiveByOrder" column="IsRecByOrder" type="Boolean"  />
 		<property name="IsAsnUniqueReceive" column="IsAsnUniqueRec" type="Boolean"  />
 		<property name="IsMRP" column="IsMRP" type="Boolean"  />
 		<property name="ReceiveGapTo" column="RecGapTo"  />

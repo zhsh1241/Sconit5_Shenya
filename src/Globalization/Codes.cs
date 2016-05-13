@@ -894,6 +894,10 @@ namespace com.Sconit.CodeMaster
         /// 后加工废品报废，不消耗库存
         /// </summary>
         MES27 = 27,
+        /// <summary>
+        /// 调整后的废品报废
+        /// </summary>
+        MES100 = 100,
     }
 
     public enum MiscOrderStatus

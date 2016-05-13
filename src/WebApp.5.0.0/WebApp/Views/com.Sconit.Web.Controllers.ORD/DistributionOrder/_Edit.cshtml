@@ -718,6 +718,21 @@
                     }
                 </div>
                 <div class="editor-label-4">
+                    @Html.LabelFor(model => model.IsReceiveByOrder)
+                </div>
+                <div class="editor-field-4">
+                    @{
+            if (ViewBag.isEditable)
+            {
+                        @Html.CheckBoxFor(model => model.IsReceiveByOrder)
+            }
+            else
+            {
+                        @Html.CheckBoxFor(model => model.IsReceiveByOrder, new { disabled = true })
+            }
+                    }
+                </div>
+                <div class="editor-label-4">
                     @Html.LabelFor(model => model.IsReceiveExceed)
                 </div>
                 <div class="editor-field-4">

@@ -293,40 +293,49 @@
         [Transaction(TransactionMode.Requires)]
         public string DoShipOrder(List<Entity.SI.SD_ORD.OrderDetailInput> orderDetailInputList, DateTime? effDate)
         {
-            if (orderDetailInputList == null || orderDetailInputList.Count == 0)
+            try
             {
-                throw new com.Sconit.Entity.Exception.BusinessException("没有要发货的明细");
-            }
-            IList<Entity.ORD.OrderDetail> baseOrderDetailList = new List<Entity.ORD.OrderDetail>();
-            var ids = orderDetailInputList.Select(o => o.Id).Distinct();
 
-            foreach (var id in ids)
-            {
-                var baseOrderDatail = genericMgr.FindById<Entity.ORD.OrderDetail>(id);
-                var selectedOrderDetailInputList = orderDetailInputList.Where(o => o.Id == id);
-                if (selectedOrderDetailInputList != null)
+                if (orderDetailInputList == null || orderDetailInputList.Count == 0)
                 {
-                    baseOrderDatail.OrderDetailInputs = new List<Entity.ORD.OrderDetailInput>();
-                    foreach (var orderDetailInput in selectedOrderDetailInputList)
-                    {
-                        Entity.ORD.OrderDetailInput baseOrderDetailInput = new Entity.ORD.OrderDetailInput();
-                        baseOrderDetailInput.HuId = orderDetailInput.HuId;
-                        baseOrderDetailInput.ShipQty = orderDetailInput.ShipQty;
-                        baseOrderDetailInput.LotNo = orderDetailInput.LotNo;
-
-                        baseOrderDatail.OrderDetailInputs.Add(baseOrderDetailInput);
-                    }
+                    throw new com.Sconit.Entity.Exception.BusinessException("没有要发货的明细");
                 }
-                baseOrderDetailList.Add(baseOrderDatail);
-            }
+                IList<Entity.ORD.OrderDetail> baseOrderDetailList = new List<Entity.ORD.OrderDetail>();
+                var ids = orderDetailInputList.Select(o => o.Id).Distinct();
 
-            if (effDate.HasValue)
-            {
-                return this.orderMgr.ShipOrder(baseOrderDetailList, effDate.Value).IpNo;
+                foreach (var id in ids)
+                {
+                    var baseOrderDatail = genericMgr.FindById<Entity.ORD.OrderDetail>(id);
+                    var selectedOrderDetailInputList = orderDetailInputList.Where(o => o.Id == id);
+                    if (selectedOrderDetailInputList != null)
+                    {
+                        baseOrderDatail.OrderDetailInputs = new List<Entity.ORD.OrderDetailInput>();
+                        foreach (var orderDetailInput in selectedOrderDetailInputList)
+                        {
+                            Entity.ORD.OrderDetailInput baseOrderDetailInput = new Entity.ORD.OrderDetailInput();
+                            baseOrderDetailInput.HuId = orderDetailInput.HuId;
+                            baseOrderDetailInput.ShipQty = orderDetailInput.ShipQty;
+                            baseOrderDetailInput.LotNo = orderDetailInput.LotNo;
+
+                            baseOrderDatail.OrderDetailInputs.Add(baseOrderDetailInput);
+                        }
+                    }
+                    baseOrderDetailList.Add(baseOrderDatail);
+                }
+
+                if (effDate.HasValue)
+                {
+                    return this.orderMgr.ShipOrder(baseOrderDetailList, effDate.Value).IpNo;
+                }
+                else
+                {
+                    return this.orderMgr.ShipOrder(baseOrderDetailList).IpNo;
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                return this.orderMgr.ShipOrder(baseOrderDetailList).IpNo;
+                throw ex;
             }
         }
 
@@ -585,12 +594,14 @@
             orderMaster.ReceiptTemplate = "REC_InvIn.xls";
             orderMaster.IsAsnUniqueReceive = true;
             orderMaster.IsCreateBySmartDevice = true;
+            orderMaster.IsReceiveByOrder = true;
 
             if (!string.IsNullOrWhiteSpace(flowMaster.Code))
             {
                 var baseFlowMaster = this.genericMgr.FindById<FlowMaster>(flowMaster.Code);
+                
 
-                orderMaster.IsQuick = false;
+                orderMaster.IsQuick = false; 
 
                 orderMaster.IsShipScanHu = baseFlowMaster.IsShipScanHu;
                 orderMaster.IsReceiveScanHu = baseFlowMaster.IsReceiveScanHu;

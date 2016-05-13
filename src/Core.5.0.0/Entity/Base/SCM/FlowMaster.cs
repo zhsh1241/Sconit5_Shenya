@@ -155,8 +155,8 @@ namespace com.Sconit.Entity.SCM
         [Display(Name = "FlowMaster_IsShipByOrder", ResourceType = typeof(Resources.SCM.FlowMaster))]
         public Boolean IsShipByOrder { get; set; }
 
-        //[Display(Name = "FlowMaster_IsReceiveByOrder", ResourceType = typeof(Resources.SCM.FlowMaster))]
-        //public Boolean IsReceiveByOrder { get; set; }
+        [Display(Name = "FlowMaster_IsReceiveByOrder", ResourceType = typeof(Resources.SCM.FlowMaster))]
+        public Boolean IsReceiveByOrder { get; set; }
 
         [Display(Name = "FlowMaster_IsAsnUniqueReceive", ResourceType = typeof(Resources.SCM.FlowMaster))]
         public Boolean IsAsnUniqueReceive { get; set; }

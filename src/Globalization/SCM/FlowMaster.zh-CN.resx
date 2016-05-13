@@ -505,4 +505,7 @@
   <data name="FlowMaster_SalesOrg" xml:space="preserve">
     <value>销售组织</value>
   </data>
+  <data name="FlowMaster_IsReceiveByOrder" xml:space="preserve">
+    <value>按订单收货</value>
+  </data>
 </root>

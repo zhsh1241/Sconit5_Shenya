@@ -747,4 +747,7 @@
   <data name="OrderMaster_ShipFromFax" xml:space="preserve">
     <value>发货方地址传真</value>
   </data>
+  <data name="OrderMaster_IsReceiveByOrder" xml:space="preserve">
+    <value>IsReceiveByOrder</value>
+  </data>
 </root>

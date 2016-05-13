@@ -747,4 +747,7 @@
   <data name="OrderMaster_RefExtOrderNo" xml:space="preserve">
     <value>参考/外部单号</value>
   </data>
+  <data name="OrderMaster_IsReceiveByOrder" xml:space="preserve">
+    <value>按订单收货</value>
+  </data>
 </root>

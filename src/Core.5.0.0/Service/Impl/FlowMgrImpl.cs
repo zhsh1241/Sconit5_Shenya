@@ -670,7 +670,7 @@
                         }
                         newFlowMaster.IsRejectInspect = true;
                         newFlowMaster.IsShipScanHu = true;
-                        newFlowMaster.IsCreatePickList = true;
+                        newFlowMaster.IsCreatePickList = false;
 
                     }
                     else if (firstFlowItem.Type == CodeMaster.OrderType.Production)
@@ -687,7 +687,7 @@
                         newFlowMaster.LocationTo = locationTo.Code;
                         newFlowMaster.IsShipScanHu = true;
                         newFlowMaster.IsReceiveScanHu = true;
-                        newFlowMaster.IsCreatePickList = true;
+                        newFlowMaster.IsCreatePickList = false;
                         newFlowMaster.OrderTemplate = "ASN_Transfer.xls";
                         newFlowMaster.AsnTemplate = "ASN_Transfer.xls";
                         newFlowMaster.ReceiptTemplate = "REC_InvOut.xls";

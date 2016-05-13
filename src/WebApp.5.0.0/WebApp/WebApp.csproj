@@ -225,6 +225,7 @@
     <Compile Include="Controllers\MRP\MrpExScrapController.cs" />
     <Compile Include="Controllers\MRP\MrpSnapMachineController.cs" />
     <Compile Include="Controllers\MRP\MrpSnapProdLineExController.cs" />
+    <Compile Include="Controllers\ORD\ScrapMiscOrderController.cs" />
     <Compile Include="Controllers\ORD\ProductionFiScraptOrderController.cs" />
     <Compile Include="Controllers\PRD\ExReportController.cs" />
     <Compile Include="Controllers\PRD\SmallSparePartChkController.cs" />
@@ -2403,6 +2404,25 @@
     <Content Include="Views\com.Sconit.Web.Controllers.MD\TraceLog\List.cshtml" />
     <Content Include="Views\com.Sconit.Web.Controllers.MD\TraceLog\_DetailList.cshtml" />
     <Content Include="Views\com.Sconit.Web.Controllers.Report\CustReport\DOHReport.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\_DetailSearch.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\_MiscOrderDetail.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\_MiscOrderDetailIsScanHu.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\_Search.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\_SearchDetailResult.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\_SearchResult.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\DetailIndex.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\DetailList.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\Edit.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\Index.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\List.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\New.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapDetailIndex.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapDetailList.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapEdit.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapIndex.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapList.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapNew.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapSearchList.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
       <SubType>Designer</SubType>
