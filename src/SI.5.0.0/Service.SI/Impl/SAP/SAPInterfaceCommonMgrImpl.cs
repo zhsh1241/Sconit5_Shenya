@@ -27,44 +27,44 @@ namespace com.Sconit.Service.SI.SAP.Impl
         {
             //lock (GenMesQtyDataLock)
             //{
-                var errorMessageList = new List<ErrorMessage>();
-                DateTime currDate;
-                string dBName = genericMgr.FindAllWithNativeSql<string>("Select DB_NAME()").FirstOrDefault();
-                currDate = genericMgr.FindAllWithNativeSql<DateTime>("Select GetDate()").FirstOrDefault();
-                DateTime? transStartDate = DateTime.Now;
-                DateTime? dataFromDate = null;
-                DateTime? dataToDate = null;
-                try
-                {
-                    var batchNo = Guid.NewGuid().ToString().Replace("-", "");
+            var errorMessageList = new List<ErrorMessage>();
+            DateTime currDate;
+            string dBName = genericMgr.FindAllWithNativeSql<string>("Select DB_NAME()").FirstOrDefault();
+            currDate = genericMgr.FindAllWithNativeSql<DateTime>("Select GetDate()").FirstOrDefault();
+            DateTime? transStartDate = DateTime.Now;
+            DateTime? dataFromDate = null;
+            DateTime? dataToDate = null;
+            try
+            {
+                var batchNo = Guid.NewGuid().ToString().Replace("-", "");
 
-                    //Save inv of current time
-                    User user = SecurityContextHolder.Get();
-                    var result = this.genericMgr.FindAllWithNamedQuery<object>("USP_SAP_SaveInvForSIExecution_New", new object[] { batchNo, DateTime.Now, DateTime.Now, user.Id });
-                    if (result.Count()>0)
-                    {
-                        currDate = (DateTime)result[0];
-                    }
-                    var messages = new List<ErrorMessage>();
-                    if (dBName.ToUpper() == "SCONIT")
-                    {
-                        messages.AddRange(salesDistributionMgr.ExportMESQTY0001());
-                    }
-                    //记录成功日志
-                    this.SaveTransferLog(batchNo, "SUCCESS", "GenMesInvSnap", "GenMesInvSnap", 1, 1, transStartDate, dataFromDate, dataToDate);
-                }
-                catch (Exception ex)
+                //Save inv of current time
+                User user = SecurityContextHolder.Get();
+                var result = this.genericMgr.FindAllWithNamedQuery<object>("USP_SAP_SaveInvForSIExecution_New", new object[] { batchNo, DateTime.Now, DateTime.Now, user.Id });
+                if (result.Count() > 0)
                 {
-                    string logMessage = "业务接口快照数据生成失败，失败的时间为:" + currDate.ToString("yyyy-MM-dd HH:mm:ss");
-                    errorMessageList.Add(new ErrorMessage
-                    {
-                        Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
-                        Exception = ex,
-                        Message = logMessage
-                    });
+                    currDate = (DateTime)result[0];
                 }
-                this.SendErrorMessage(errorMessageList);
-                return currDate;
+                var messages = new List<ErrorMessage>();
+                if (dBName.ToUpper() == "SCONIT")
+                {
+                    messages.AddRange(salesDistributionMgr.ExportMESQTY0001());
+                }
+                //记录成功日志
+                this.SaveTransferLog(batchNo, "SUCCESS", "GenMesInvSnap", "GenMesInvSnap", 1, 1, transStartDate, dataFromDate, dataToDate);
+            }
+            catch (Exception ex)
+            {
+                string logMessage = "接口快照数据生成失败，失败的时间为:" + currDate.ToString("yyyy-MM-dd HH:mm:ss");
+                errorMessageList.Add(new ErrorMessage
+                {
+                    Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
+                    Exception = ex,
+                    Message = logMessage
+                });
+            }
+            this.SendErrorMessage(errorMessageList);
+            return currDate;
             //}
 
 
@@ -85,7 +85,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                 {
                     //DateTime currDate = DateTime.Now;
                     var messages = new List<ErrorMessage>();
-                    if (dBName.ToUpper() == "SCONIT" || (dBName.ToUpper() == "SCONIT_TEST" && this.SAPService_IP == "10.166.1.92"))
+                    if (dBName.ToUpper() == "SCONIT" || (dBName.ToUpper() == "SCONIT_TEST" && this.SAPService_IP == "10.168.1.21"))
                     {
                         messages.AddRange(materialManagementMgr.ExportMMMES0001Data());
                         messages.AddRange(materialManagementMgr.ExportMMMES0002Data());
@@ -101,7 +101,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                         messages.AddRange(salesDistributionMgr.ExportSDMES0002());
                     }
                     //记录成功日志
-                    this.SaveTransferLog("TransBusinessData", "SUCCESS", "TransBusinessData", "TransBusinessData", 1, 0, transStartDate, dataFromDate, dataToDate);
+                    this.SaveTransferLog("TransBusinessData", "SUCCESS", "TransBusinessData", "所有业务数据传输", 1, 0, transStartDate, dataFromDate, dataToDate);
                 }
                 catch (Exception ex)
                 {
@@ -166,12 +166,12 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     timeControl.LastTransDate = timeControl.CurrTransDate;
                     timeControl.CurrTransDate = currDate;
                     this.genericMgr.Update(timeControl);
-                    this.SaveTransferLog(timeContrlCode, "SUCCESS", timeContrlCode, timeContrlCode, 1,0, transStartDate, dataFromDate, dataToDate);
+                    this.SaveTransferLog("所有业务(除成本中心和调整)", "SUCCESS", timeContrlCode, "数据生成", 1, 0, transStartDate, dataFromDate, dataToDate);
 
                 }
                 catch (Exception ex)
                 {
-                    string logMessage = "业务接口数据生成失，失败的时间段为:" + timeControl.CurrTransDate.Value.ToString("yyyy-MM-dd HH:mm:ss") + " 到 " + currDate.ToString("yyyy-MM-dd HH:mm:ss");
+                    string logMessage = "业务接口数据生成失败，失败的时间段为:" + timeControl.CurrTransDate.Value.ToString("yyyy-MM-dd HH:mm:ss") + " 到 " + currDate.ToString("yyyy-MM-dd HH:mm:ss");
                     errorMessageList.Add(new ErrorMessage
                     {
                         Template = NVelocityTemplateRepository.TemplateEnum.ExportBusDataToSAPErrorTemplate,
@@ -224,7 +224,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     timeControl.LastTransDate = timeControl.CurrTransDate;
                     timeControl.CurrTransDate = currDate;
                     this.genericMgr.Update(timeControl);
-                    this.SaveTransferLog(timeContrlCode, "SUCCESS", timeContrlCode, timeContrlCode, 1, 0, transStartDate, dataFromDate, dataToDate);
+                    this.SaveTransferLog("成本中心和调整 ", "SUCCESS", timeContrlCode, "数据生成", 1, 0, transStartDate, dataFromDate, dataToDate);
                 }
                 catch (Exception ex)
                 {
@@ -279,7 +279,7 @@ namespace com.Sconit.Service.SI.SAP.Impl
                     timeControl.LastTransDate = timeControl.CurrTransDate;
                     timeControl.CurrTransDate = currDate;
                     this.genericMgr.Update(timeControl);
-                    this.SaveTransferLog(timeContrlCode, "SUCCESS", timeContrlCode, timeContrlCode, 1, 0, transStartDate, dataFromDate, dataToDate);
+                    this.SaveTransferLog("尾差", "SUCCESS", timeContrlCode, "数据生成", 1, 0, transStartDate, dataFromDate, dataToDate);
                 }
                 catch (Exception ex)
                 {
