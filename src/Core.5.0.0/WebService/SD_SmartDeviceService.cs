@@ -214,6 +214,10 @@
             {
                 throw new SoapException(GetBusinessExMessage(ex), SoapException.ServerFaultCode, string.Empty);
             }
+            catch (Exception ex)
+            {
+                throw new SoapException("", SoapException.ServerFaultCode, string.Empty);
+            }
         }
 
         [WebMethod]

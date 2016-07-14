@@ -232,6 +232,7 @@
     <Compile Include="Controllers\Report\ExPlanExecutionControlController.cs" />
     <Compile Include="Controllers\Report\InventoryController.cs" />
     <Compile Include="Controllers\Report\CustReportController.cs" />
+    <Compile Include="Controllers\SI\SAPCSSetNoController.cs" />
     <Compile Include="Controllers\SI\SAPInterfaceController.cs" />
     <Compile Include="Controllers\SI\SIEntityPreferenceController.cs" />
     <Compile Include="Controllers\SI\SILogToUserController.cs" />
@@ -524,6 +525,7 @@
     <Compile Include="Models\SearchModels\SearchModelBase.cs" />
     <Compile Include="Models\SearchModels\SearchNativeSqlStatementModel.cs" />
     <Compile Include="Models\SearchModels\SearchStatementModel.cs" />
+    <Compile Include="Models\SearchModels\SI\SAPCSSetNoSearchModel.cs" />
     <Compile Include="Models\SearchModels\SI\SAPInterfaceSearchModel.cs" />
     <Compile Include="Models\SearchModels\SI\EDI_SearchModel.cs" />
     <Compile Include="Models\SearchModels\SI\SearchModel.cs" />
@@ -2423,6 +2425,10 @@
     <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapList.cshtml" />
     <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapNew.cshtml" />
     <Content Include="Views\com.Sconit.Web.Controllers.ORD\ScrapMiscOrder\ScrapSearchList.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.SI\SAPCSSetNo\Index.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.SI\SAPCSSetNo\List.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.SI\SAPCSSetNo\_Search.cshtml" />
+    <Content Include="Views\com.Sconit.Web.Controllers.SI\SAPCSSetNo\_SearchResult.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
       <SubType>Designer</SubType>

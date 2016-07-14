@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+ 	<class name="com.Sconit.Entity.SI.SAP.SAPCSSetNo, com.Sconit.Entity.SI" table="SAP_CSSetNo" lazy="false">
+		<id name="Id" column="Id" type="Int32" unsaved-value="0" >
+      		<generator class="identity" />
+        </id>
+		<property name="ActBill" column="ActBill" type="Int32" length="18"/>	
+    <property name="SetTransId" column="SetTransId" type="Int32" />
+    <property name="SetNo" column="SetNo" type="String" length="50"/>	
+		<property name="SetRec" column="SetRec" type="String" length="50"/>	
+		<property name="Item" column="Item" type="String" length="50"/>
+    <property name="Qty" column="Qty" type="String" length="50"/>
+    <property name="Uom" column="Uom" type="String" length="50"/>
+		<property name="Supplier" column="Supplier" type="String" length="50"/>	
+		<property name="OrgOrderNo" column="OrgOrderNo" type="String" length="50"/>	
+		<property name="OrgRecNo" column="OrgRecNo" type="String" length="50"/>	
+    <property name="BatchNo" column="BatchNo" type="String" length="50"/>	
+		<property name="CreateDate" column="CreateDate" type="DateTime" update="false"/>	
+  	</class>
+</hibernate-mapping>

@@ -776,7 +776,7 @@
                 {
                     SaveWarningMessage(string.Format(Resources.EXT.ControllerLan.Con_DataExceedRow, value));
                 }
-                return View(InspectDetailList.Take(value));
+                return View(InspectDetailList.Take(value).ToList());
             }
             else
             {

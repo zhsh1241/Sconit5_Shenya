@@ -106,6 +106,8 @@ namespace com.Sconit.Entity.INV
         public Location CurrentLocation { get; set; }
         public PlanBill CurrentPlanBill { get; set; }
         public ActingBill CurrentActingBill { get; set; }
+        public SettleBillTransaction CurrentBillTransaction { get; set; }
+        public bool IsPartVoid { get; set; }
         public Hu CurrentHu { get; set; }
     }
 

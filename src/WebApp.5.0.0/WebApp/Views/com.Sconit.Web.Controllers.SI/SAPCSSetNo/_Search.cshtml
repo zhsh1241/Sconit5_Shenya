@@ -1,0 +1,114 @@
+﻿@using com.Sconit.Entity.MD
+@using com.Sconit.Web.Models.SearchModels.SI
+<fieldset>
+    @using (Html.BeginForm("List", "SAPCSSetNo"))
+    {   
+        <div class="search">
+            <div class="search-label">
+                <label for="Currency_Code">
+                    MES寄售单号
+                </label>
+            </div>
+            <div class="search-field">
+                @Html.TextBox("SetTransId", TempData["SAPCSSetNoSearchModel"] != null ? ((SAPCSSetNoSearchModel)TempData["SAPCSSetNoSearchModel"]).SetTransId : string.Empty, new { onblur = "onSetTransIdBlur(this)" })
+            </div>
+             <div class="search-label">
+                <label for="Currency_Name">
+                    MES结算单号
+                </label>
+            </div>
+            <div class="search-field">
+                @Html.TextBox("SetNo", TempData["SAPCSSetNoSearchModel"] != null ? ((SAPCSSetNoSearchModel)TempData["SAPCSSetNoSearchModel"]).SetNo : string.Empty)
+            </div>
+            <div class="search-label">
+                <label for="OrderMaster_OrderNo">
+                    @Resources.BIL.PlanBill.PlanBill_Party
+                </label>
+            </div>
+            <div class="search-field">
+                @{
+                Html.RenderAction("_SupplierComboBox", "Common", new
+                {
+                    controlName = "Party",
+                    selectedValue = TempData["SAPCSSetNoSearchModel"] != null ? ((SAPCSSetNoSearchModel)TempData["SAPCSSetNoSearchModel"]).Party : string.Empty
+                });
+                }
+            </div>
+
+            <div class="search-label">
+            </div>
+            <div class="search-field">
+            </div>
+
+            <div class="search-label">
+                <label for="OrderMaster_DateFrom">
+                    @Resources.ORD.OrderMaster.OrderMaster_DateFrom
+                </label>
+            </div>
+            <div class="search-field">
+                @(Html.Telerik().DateTimePicker().Format("yyyy-MM-dd HH:mm").Name("DateFrom")
+                .Value(TempData["SAPCSSetNoSearchModel"] != null ? ((SAPCSSetNoSearchModel)TempData["SAPCSSetNoSearchModel"]).DateFrom : System.DateTime.Today.AddDays(-7))
+                .HtmlAttributes(new { style = "margin-bottom: 1.3em;width:200px" }))
+            </div>
+            <div class="search-label">
+                <label for="OrderMaster_DateTo">
+                    @Resources.ORD.OrderMaster.OrderMaster_DateTo
+                </label>
+            </div>
+            <div class="search-field">
+                @(Html.Telerik().DateTimePicker().Format("yyyy-MM-dd HH:mm").Name("DateTo")
+                .Value(TempData["SAPCSSetNoSearchModel"] != null ? ((SAPCSSetNoSearchModel)TempData["SAPCSSetNoSearchModel"]).DateTo : System.DateTime.Today.AddDays(1))
+                .HtmlAttributes(new { style = "margin-bottom: 1.3em;width:200px" }))
+            </div>
+
+
+        </div>
+        <div class="search-footer">
+         @Html.Hidden("isFromList", true)
+            @*<button type="submit" id="btnSearch">
+                @Resources.SYS.Global.Button_Search</button>
+            <button type="button" id="btnNew" onclick="location.href='@Url.Content("~/Currency/New")'">
+                @Resources.SYS.Global.Button_New</button>*@
+                @Html.Button(Resources.SYS.Global.Button_Search, "Url_SI_SAPCSSetNo_View", new Dictionary<string, string>()
+	{
+	    {"type", "submit"},
+	    {"id", "btnSearch"}
+	})
+            @Html.Button("处理数据", "Url_SI_SAPCSSetNo_View", new Dictionary<string, string>()
+	{
+	    {"type", "button"},
+	    {"id", "btnProcess"},
+        {"onclick","ProcessData(this)"}
+	})
+        </div>
+
+    }
+</fieldset>
+<script>
+    function onSetTransIdBlur(e) {
+        var transId = $("#SetTransId").val();
+        if (isNaN(transId) === true) {
+            alert("请输入数字类型的MES寄售单号");
+            $("#SetTransId").val("");
+            return;
+        }
+    }
+
+    function ProcessData() {
+        $("#btnProcess").attr("disable", "disable");
+        $.ajax({
+            type: "post",
+            dataType: "Json",
+            url: "/SAPCSSetNo/_ProcessData/",
+            cache: false,
+            success: function (data, textStatus) {
+                $message.success(data.SuccessMessage);
+                $("#btnProcess").removeAttr("disable"); ;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                var errorMessages = XMLHttpRequest.responseText;
+                $message.error(errorMessages);
+            }
+        });
+    }
+</script>

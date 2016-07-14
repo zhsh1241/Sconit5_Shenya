@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<com.Sconit.Entity.SI.SAP.SAPCSSetNo>
+<fieldset>
+    @(Html.Telerik().Grid(Model)
+        .Name("SAPCSSetNoGrid")
+        .DataKeys(keys =>
+        {
+            keys.Add(p => p.Id
+                );
+        })
+        .Columns(columns =>
+        {
+            columns.Bound(o => o.SetTransId).Title("MES寄售单号");
+            columns.Bound(o => o.SetNo).Title("MES结算单号");
+            columns.Bound(o => o.SetRec).Title("MES结算收货单号");
+            columns.Bound(o => o.Item).Title("零件");
+            columns.Bound(o => o.Qty).Title("数量");
+            columns.Bound(o => o.Uom).Title("单位");
+            columns.Bound(o => o.Supplier).Title("供应商");
+                })
+      
+            .Scrollable(c => c.Enabled(false))
+            .EnableCustomBinding(true)
+            .DataBinding(dataBinding => dataBinding.Ajax().Select("_AjaxList", "SAPCSSetNo"))
+            .ClientEvents(events => events.OnDataBinding("SAPCSSetNo_OnDataBinding"))
+            .Pageable(settings =>
+            {
+                settings.Total(ViewBag.Total != null ? ViewBag.Total : 0);
+                settings.PageSize(ViewBag.PageSize != null ? ViewBag.PageSize : 10);
+                if (ViewBag.Page != null)
+                {
+                    settings.PageTo(ViewBag.Page);
+                }
+            })
+            .Sortable()
+            .Resizable(resizing => resizing.Columns(true))
+            )
+    <script type="text/javascript">
+        function SAPCSSetNo_OnDataBinding(e) {
+            var transId = $("#SetTransId").val();
+            if (isNaN(transId) === true) {
+                alert("请输入数字类型的MES寄售单号");
+                $("#SetTransId").val("");
+                return;
+            }
+            e.data = {
+                SetTransId: $('#SetTransId').val(),
+                SetNo: $('#SetNo').val(),
+                Party: $('#Party').val(),
+                DateFrom: $('#DateFrom').val(),
+                DateTo: $('#DateTo').val()
+            };
+        } 
+    </script>
+</fieldset>

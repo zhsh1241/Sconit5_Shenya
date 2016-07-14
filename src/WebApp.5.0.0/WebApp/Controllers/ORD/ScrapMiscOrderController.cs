@@ -272,7 +272,7 @@ namespace com.Sconit.Web.Controllers.ORD
             }
             MiscOrderMoveType miscOrderMoveType = genericMgr.FindAll<MiscOrderMoveType>(
                 "from MiscOrderMoveType as m where m.MoveType=? and m.SubType=? ",
-                new object[] { miscOrderMaster.MoveType, com.Sconit.CodeMaster.MiscOrderSubType.COST })[0];
+                new object[] { miscOrderMaster.MoveType, com.Sconit.CodeMaster.MiscOrderSubType.MES100 })[0];
             
             //页面不加生效日期
             //miscOrderMaster.EffectiveDate = DateTime.Now;
@@ -803,6 +803,13 @@ namespace com.Sconit.Web.Controllers.ORD
                     SaveSuccessMessage(Resources.EXT.ControllerLan.Con_ConfirmSuccessfully);
                 }
             }
+            catch (BusinessException ex)
+            {
+                foreach (var message in ex.GetMessages())
+                {
+                    SaveErrorMessage(message.GetMessageString());
+                }
+            }
             catch (Exception ex)
             {
                 SaveErrorMessage(ex.Message);
@@ -976,7 +983,7 @@ namespace com.Sconit.Web.Controllers.ORD
 
         private SearchStatementModel PrepareSearchStatement(GridCommand command, MiscOrderSearchModel searchModel)
         {
-            string whereStatement = string.Format("where m.SubType={0} ", searchModel.SearchType == "CostCenter" ? (int)CodeMaster.MiscOrderSubType.COST : (int)CodeMaster.MiscOrderSubType.MES100);
+            string whereStatement = string.Format("where m.SubType={0} ", (int)CodeMaster.MiscOrderSubType.MES100);
             IList<object> param = new List<object>();
 
             HqlStatementHelper.AddLikeStatement("MiscOrderNo", searchModel.MiscOrderNo, HqlStatementHelper.LikeMatchMode.Anywhere, "m", ref whereStatement, param);

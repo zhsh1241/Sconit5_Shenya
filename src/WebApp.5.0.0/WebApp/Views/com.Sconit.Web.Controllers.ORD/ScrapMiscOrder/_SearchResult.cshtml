@@ -8,7 +8,7 @@
         })
         .Columns(columns =>
         {
-            columns.Bound(o => o.MiscOrderNo).ClientTemplate(Html.ActionLink("<#= MiscOrderNo #>", @ViewBag.SearchType == "CostCenter" ? "Edit" : "ScrapEdit", "CostCenterMiscOrder", new { id = "<#= MiscOrderNo #>" }, null).ToString());
+            columns.Bound(o => o.MiscOrderNo).ClientTemplate(Html.ActionLink("<#= MiscOrderNo #>", "Edit", "ScrapMiscOrder", new { id = "<#= MiscOrderNo #>" }, null).ToString());
             columns.Bound(o => o.EffectiveDate);
             columns.Bound(o => o.Location);
             columns.Bound(o => o.MoveType);
@@ -24,7 +24,7 @@
 
         .Scrollable(c => c.Enabled(false))
         .EnableCustomBinding(true)
-        .DataBinding(dataBinding => dataBinding.Ajax().Select("_AjaxList", "CostCenterMiscOrder"))
+        .DataBinding(dataBinding => dataBinding.Ajax().Select("_AjaxList", "ScrapMiscOrder"))
         .ClientEvents(events => events.OnDataBinding("MiscOrderGrid_OnDataBinding"))
         .Pageable(settings =>
         {

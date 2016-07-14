@@ -1,7 +1,7 @@
 ﻿@model com.Sconit.Entity.ORD.MiscOrderMaster
 @using com.Sconit.Entity.CUST
 @{
-    Html.RenderAction("_SiteMapPath", "Common", new { MenuContent = "Url_CostCenterMiscOrder_View" });
+    Html.RenderAction("_SiteMapPath", "Common", new { MenuContent = "Url_ScrapMiscOrder_Edit" });
 }
 <script type="text/javascript">
     function onSuccess(e) {
@@ -13,10 +13,10 @@
         }
         var url = "";
         if ($("#IsScanHu").val() == "True") {
-            url = "/CostCenterMiscOrder/_MiscOrderDetailIsScanHu/";
+            url = "/ScrapMiscOrder/_MiscOrderDetailIsScanHu/";
         }
         else {
-            url = "/CostCenterMiscOrder/_MiscOrderDetail/";
+            url = "/ScrapMiscOrder/_MiscOrderDetail/";
         }
         $.ajax({
             type: "get",
@@ -87,7 +87,7 @@
         $.ajax({
             type: "post",
             dataType: "text",
-            url: "/CostCenterMiscOrder/EditMiscOrder/",
+            url: "/ScrapMiscOrder/EditMiscOrder/",
             data: $.extend(miscmstr, made),
             success: function (data) {
                 $("#content").html(data);
@@ -111,7 +111,7 @@
             $.ajax({
                 type: "get",
                 dataType: "text",
-                url: "/CostCenterMiscOrder/_GetMiscOrderLocation/",
+                url: "/ScrapMiscOrder/_GetMiscOrderLocation/",
                 data: data,
                 cache: false,
                 success: function (data, textStatus) {
@@ -176,7 +176,7 @@
                 $.ajax({
                     type: "get",
                     dataType: "text",
-                    url: "/CostCenterMiscOrder/_MiscOrderDetailIsScanHu/",
+                    url: "/ScrapMiscOrder/_MiscOrderDetailIsScanHu/",
                     cache: false,
                     data: data,
                     success: function (data, textStatus) {
@@ -202,7 +202,7 @@
             $.ajax({
                 type: "get",
                 dataType: "text",
-                url: "/CostCenterMiscOrder/_MiscOrderDetail/",
+                url: "/ScrapMiscOrder/_MiscOrderDetail/",
                 cache: false,
                 data: data,
                 success: function (data, textStatus) {
@@ -223,7 +223,7 @@
             $.ajax({
                 type: "get",
                 dataType: "text",
-                url: "/CostCenterMiscOrder/_MiscOrderDetailIsScanHu/",
+                url: "/ScrapMiscOrder/_MiscOrderDetailIsScanHu/",
                 cache: false,
                 data: data,
                 success: function (data, textStatus) {
@@ -452,7 +452,7 @@
             @{
                 if (Model.Status == com.Sconit.CodeMaster.MiscOrderStatus.Create)
                 {   
-                @Html.Button(Resources.SYS.Global.Button_Save, "Url_CostCenterMiscOrder_Edit", new Dictionary<string, string>
+                @Html.Button(Resources.SYS.Global.Button_Save, "Url_ScrapMiscOrder_Edit", new Dictionary<string, string>
 
 ()
 	        {
@@ -462,36 +462,36 @@
                 {"onclick","onEdit()"}
 	        })
 
-                @Html.Button(Resources.SYS.Global.Button_Delete, "Url_CostCenterMiscOrder_Edit", new Dictionary<string,
+                @Html.Button(Resources.SYS.Global.Button_Delete, "Url_ScrapMiscOrder_Edit", new Dictionary<string,
 
 string>()
 	            {
 	                {"type", "button"},
 	                {"id", "btnDelete"},
                     {"needconfirm","true"},
-                    {"onclick","location.href='"+Url.Content("~/CostCenterMiscOrder/btnDelete/" + Model.MiscOrderNo) +"'"}
+                    {"onclick","location.href='"+Url.Content("~/ScrapMiscOrder/btnDelete/" + Model.MiscOrderNo) +"'"}
 	            })
-                @Html.Button(Resources.SYS.Global.Button_Confirm, "Url_CostCenterMiscOrder_Confirm", new Dictionary<string,
+                @Html.Button(Resources.SYS.Global.Button_Confirm, "Url_ScrapMiscOrder_Confirm", new Dictionary<string,
 
 string>()
 	            {
 	                {"type", "button"},
 	                {"id", "btnClose"},
                     {"needconfirm","true"},
-                     {"onclick","location.href='"+Url.Content("~/CostCenterMiscOrder/btnClose/" + Model.MiscOrderNo) +"'"}
+                     {"onclick","location.href='"+Url.Content("~/ScrapMiscOrder/btnClose/" + Model.MiscOrderNo) +"'"}
 	            })
                
                 }
                 else if (Model.Status == com.Sconit.CodeMaster.MiscOrderStatus.Close)
                 {
-                @Html.Button(Resources.SYS.Global.Button_Cancel, "Url_CostCenterMiscOrder_Confirm", new Dictionary<string,
+                @Html.Button(Resources.SYS.Global.Button_Cancel, "Url_ScrapMiscOrder_Confirm", new Dictionary<string,
 
 string>()
 	            {
 	                {"type", "button"},
 	                {"id", "btnCancel"},
                     {"needconfirm","true"},
-                    {"onclick","location.href='"+Url.Content("~/CostCenterMiscOrder/btnCancel/" + Model.MiscOrderNo) +"'"}
+                    {"onclick","location.href='"+Url.Content("~/ScrapMiscOrder/btnCancel/" + Model.MiscOrderNo) +"'"}
 	            })
                 }
             }
@@ -502,7 +502,7 @@ string>()
             <button type="button" id="btnExport" onclick="Export()">
                 @Resources.SYS.Global.Button_Export</button>
 
-            <button type="button" id="btnBack" onclick="location.href='@Url.Content("~/CostCenterMiscOrder/List")'">
+            <button type="button" id="btnBack" onclick="location.href='@Url.Content("~/ScrapMiscOrder/List")'">
                 @Resources.SYS.Global.Button_Back</button>
 
         </div>
@@ -530,7 +530,7 @@ string>()
         @{
             if (!Model.IsScanHu)
             {
-                Html.RenderAction("_MiscOrderDetail", "CostCenterMiscOrder", new
+                Html.RenderAction("_MiscOrderDetail", "ScrapMiscOrder", new
                 {
                     miscOrderNo = Model.MiscOrderNo,
                     location = Model.Location
@@ -538,7 +538,7 @@ string>()
             }
             else
             {
-                Html.RenderAction("_MiscOrderDetailIsScanHu", "CostCenterMiscOrder", new
+                Html.RenderAction("_MiscOrderDetailIsScanHu", "ScrapMiscOrder", new
                 {
                     miscOrderNo = Model.MiscOrderNo,
                     MoveType = Model.MoveType,
@@ -550,7 +550,7 @@ string>()
     </div>
 }
 
-<form id="hiddenForm" action="/CostCenterMiscOrder/SaveToClient" target="_blank"
+<form id="hiddenForm" action="/ScrapMiscOrder/SaveToClient" target="_blank"
     method="post">
     <input id="miscOrderNo" name="miscOrderNo" type="hidden" />
 </form>
